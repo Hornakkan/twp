@@ -1,6 +1,6 @@
 # mvvm_twp
 
-TWP project for Coding Academy 2022
+<b>TWP project for Epitech school: Coding Academy 2022.</b>
 
 Wrap up:
 - Using a Vue.js app with the WordPress API
