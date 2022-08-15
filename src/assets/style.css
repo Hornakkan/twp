@@ -1,0 +1,451 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Edu+TAS+Beginner:wght@400;600&family=Londrina+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@400;500;600&family=Londrina+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Edu+TAS+Beginner:wght@400;600&family=Londrina+Shadow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@400;500;600&family=Londrina+Shadow&display=swap");
+@keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+}
+@-webkit-keyframes cssAnimation {
+  to {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes flicker {
+  0%, 18%, 22%, 25%, 53%, 57%, 100% {
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09, 0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f09, 0 0 150px #f09;
+  }
+  20%, 24%, 55% {
+    text-shadow: none;
+  }
+}
+@keyframes pulsate {
+  100% {
+    /* Larger blur radius */
+    text-shadow: 0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #f09, 0 0 80px #f09, 0 0 90px #f09, 0 0 100px #f09, 0 0 150px #f09;
+  }
+  0% {
+    /* Smaller blur radius */
+    text-shadow: 0 0 2px #fff, 0 0 4px #fff, 0 0 6px #fff, 0 0 10px #f09, 0 0 45px #f09, 0 0 55px #f09, 0 0 70px #f09, 0 0 80px #f09;
+  }
+}
+*, ::before, ::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #222222;
+  transition: all 0.5s ease-in-out;
+}
+
+#app {
+  margin: 0 auto 0;
+  padding: 2rem 0;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 80%;
+}
+
+body {
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  background-image: url("../../img/pink-flowers.jpg");
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: none;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+.post {
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.6235294118);
+  border: 1px solid darkorchid;
+  border-radius: 5px;
+  padding: 0 2px;
+  margin: 2px 0;
+}
+.post:hover {
+  box-shadow: 0 0 10px darkorchid;
+  background-color: #fff0ff;
+}
+.post--details--content a:hover {
+  color: darkorchid;
+}
+.post--details--content a:focus {
+  outline: 0;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+  background-color: #fff0ff;
+}
+.post--wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.post--header {
+  width: 100%;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.post--header--content {
+  height: 30px;
+  border: 2px solid #fad0c4;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8274509804);
+  margin: 2px 5px;
+  padding: 0 5px;
+  font-weight: 600;
+}
+.post--header--content input {
+  background: rgba(255, 255, 255, 0.6235294118);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 3px 5px;
+  padding: 0 5px;
+}
+.post--header--content input:focus {
+  outline: 2px solid darkorchid;
+  box-shadow: 0 0 10px #f09;
+  border: none;
+}
+.post--header--content input:focus::placeholder {
+  color: transparent;
+}
+.post--header--content button {
+  width: 80px;
+  height: 20px;
+  margin-top: 0;
+  border: 1px solid darkorchid;
+  border-radius: 5px;
+  background-color: #fad0c4;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Dancing Script";
+  color: #222222;
+  cursor: pointer;
+}
+.post--header--content button:hover {
+  background-color: #ffd1ff;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+.post--header--content button:focus {
+  background-color: #ffd1ff;
+  outline: 0;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+
+.list {
+  width: 250px;
+  min-height: 250px;
+  background-color: rgba(255, 255, 255, 0.6235294118);
+  border-width: 5px;
+  border-radius: 10px;
+  border-style: solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  margin: 5px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+.list--details {
+  width: 100%;
+  height: 90%;
+}
+.list--details--title {
+  text-align: center;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+.list--details--title:focus {
+  outline: 1px solid darkorchid;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.list--details--content {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-wrap: break-word;
+  overflow: hidden;
+}
+.list--footer {
+  width: 100%;
+  height: 10%;
+  display: inherit;
+  justify-content: space-evenly;
+}
+.list--footer button {
+  width: 80px;
+  height: 20px;
+  margin-top: 0;
+  border: 1px solid darkorchid;
+  border-radius: 5px;
+  background-color: #fad0c4;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Dancing Script";
+  color: #222222;
+  cursor: pointer;
+}
+.list--footer button:hover {
+  background-color: #ffd1ff;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+.list--footer button:focus {
+  background-color: #ffd1ff;
+  outline: 0;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+
+.new--list {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  width: 150px;
+}
+.new--list input {
+  background: rgba(255, 255, 255, 0.6235294118);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 3px 5px;
+  padding: 0 5px;
+}
+.new--list input:focus {
+  outline: 2px solid darkorchid;
+  box-shadow: 0 0 10px #f09;
+  border: none;
+}
+.new--list input:focus::placeholder {
+  color: transparent;
+}
+.new--list button {
+  width: 150px;
+  height: 20px;
+  margin-top: 5px;
+  border: 1px solid darkorchid;
+  border-radius: 5px;
+  background-color: #fad0c4;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Dancing Script";
+  color: #222222;
+  cursor: pointer;
+}
+.new--list button:hover {
+  background-color: #ffd1ff;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+.new--list button:focus {
+  background-color: #ffd1ff;
+  outline: 0;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+
+.view--wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40%;
+  min-width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+.view--wrapper button {
+  width: 100px;
+  height: 20px;
+  margin-top: 0;
+  border: 1px solid darkorchid;
+  border-radius: 5px;
+  background-color: #fad0c4;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Dancing Script";
+  color: #222222;
+  cursor: pointer;
+}
+.view--wrapper button:hover {
+  background-color: #ffd1ff;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+.view--wrapper button:focus {
+  background-color: #ffd1ff;
+  outline: 0;
+  color: darkorchid;
+  box-shadow: 0 0 10px darkorchid;
+}
+.view-post {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6235294118);
+  border: 2px solid #fad0c4;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 5px 50px;
+}
+.view-post--details--title {
+  margin-bottom: 30px;
+}
+.view-post--details--content {
+  margin-bottom: 30px;
+}
+.view-post--footer {
+  margin: 5px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+.view-post--footer a {
+  width: 100px;
+}
+.view-comment--new {
+  margin: 5px 0;
+}
+.view-comment--new input {
+  background: rgba(255, 255, 255, 0.8274509804);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin: 3px 5px;
+  padding: 0 5px;
+  width: 20%;
+  font-style: italic;
+}
+.view-comment--new input:focus {
+  width: 80%;
+  outline: 2px solid darkorchid;
+  box-shadow: 0 0 10px #f09;
+  border: none;
+  font-style: normal;
+}
+.view-comment--new input:focus::placeholder {
+  color: transparent;
+}
+.view-comment--comments {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.6235294118);
+  border: 2px solid #fad0c4;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px 5px 20px;
+}
+.view-comment--comments--content {
+  margin-bottom: 10px;
+}
+.view-comment--comments--content:focus {
+  background-color: white;
+}
+.view-comment--comments--footer {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.view-comment--comments--footer--author {
+  margin-right: 5px;
+  font-weight: 600;
+}
+.view-comment--comments--footer--date {
+  margin-right: 5px;
+  font-size: 12px;
+  font-style: italic;
+}
+.view-comment--comments--footer--hour {
+  font-size: 12px;
+  font-style: italic;
+}
+.view-comment--comments button {
+  margin-top: 10px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.neontext {
+  font-size: 4.2rem;
+  font-family: "Dancing Script";
+  animation: pulsate 2.5s ease-in-out infinite alternate;
+  color: #fff;
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #f09, 0 0 82px #f09, 0 0 92px #f09, 0 0 102px #f09, 0 0 151px #f09;
+}
+
+#hideMe {
+  -moz-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Firefox */
+  -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Safari and Chrome */
+  -o-animation: cssAnimation 0s ease-in 5s forwards;
+  /* Opera */
+  animation: cssAnimation 0s ease-in 5s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+
+@media (hover: hover) {
+  a:hover {
+    border-color: #ffd1ff;
+  }
+}
+@media screen and (max-width: 770px) {
+  .post--header {
+    flex-direction: column;
+  }
+  .post--header--content {
+    max-width: 50%;
+    min-width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #app {
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .post--header--logo {
+    font-size: 35px;
+  }
+  #app {
+    padding: 0;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,317 @@
+@import './utils/variables';
+@import './utils/keyframes';
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $editText;
+    transition: all 0.5s ease-in-out;
+}
+
+#app {
+    margin: 0 auto 0;
+    padding: 2rem 0;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+}
+
+body {
+    background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+    background-image: url('../../img/pink-flowers.jpg');
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: none;
+}
+  
+a {
+text-decoration: none;
+display: inline-block;
+width: 100%;
+height: 100%;
+}
+
+.post {
+    width: 90%;
+    background-color: $postBgColor;
+    border: 1px solid $cardBorder;
+    border-radius: 5px;
+    padding: 0 2px;
+    margin: 2px 0;
+    &:hover {
+        box-shadow: 0 0 10px $buttonColorHover;
+        // background-color: $inputBgColor;
+        background-color: lighten($postBorderHover, 6%);
+    } 
+    &--details {
+        &--content {
+            & a {
+                &:hover {
+                    color: $buttonColorHover;
+                    // font-weight: 600;
+                }
+                &:focus {
+                    outline: 0;
+                    color: $buttonColorHover;
+                    box-shadow: 0 0 10px $buttonColorHover;
+                    background-color: lighten($postBorderHover, 6%);
+                }   
+            }
+        }
+    }
+    &--wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    &--header {
+        width: 100%;
+        margin: 0 auto 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        &--content {
+            height: 30px;
+            border: 2px solid $postBorder;
+            border-radius: $postRadius;
+            background-color: $headerBgColor;
+            margin: 2px $listMargin;
+            padding: 0 $listPadding;
+            font-weight: 600;
+            @include input();
+            @include button(80px, 20px);
+        }
+    }
+}
+
+.list {
+    width: $listWidth;
+    min-height: $listHeight;
+    background-color: $listBgColor;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-image-source: $listBorderColor;
+    margin: $listMargin;
+    padding: $listPadding;
+    display: flex;
+    flex-direction: column;
+    &--details {
+        width: 100%;
+        height: 90%;
+        &--title {
+            text-align: center;
+            overflow-wrap: break-word;
+            overflow: hidden;
+            &:focus {
+                outline: 1px solid $buttonColorHover;
+                border-radius: $listRadius;
+                background-color: $listEdit;
+            }
+        }
+        &--content {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;            
+            overflow-wrap: break-word;
+            overflow: hidden;
+        }
+    }
+    &--footer {
+        width: 100%;
+        height: 10%;
+        display: inherit;
+        justify-content: space-evenly;
+        @include button(80px, 20px);
+    }
+}
+
+.new {
+    &--list {
+        display: flex;
+        flex-direction: column;
+        margin: 0 10px;
+        width: 150px;      
+        @include input();
+        @include button(150px, 20px, 5px);
+    }
+}
+
+.view {
+    &--wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 40%;
+        min-width: $listWidth;
+        border-radius: $postRadius;
+        padding: $listPadding;
+        margin: $listMargin;
+        @include button (100px, 20px);      
+    }
+    &-post {
+        width: 100%;
+        background-color: $listBgColor;
+        border: 2px solid $postBorder;
+        border-radius: $postRadius;
+        padding: $listPadding;
+        margin: $listMargin $listMargin 50px;
+        &--details {
+            &--title {
+                margin-bottom: 30px;
+            }
+            &--content {
+                margin-bottom: 30px;
+            }
+        }
+        &--footer {
+            margin: $listMargin 0;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-evenly;
+            & a {
+                width: 100px;
+            }
+        }
+    }
+    &-comment {
+        &--new {
+            margin: $listMargin 0;
+            & input {
+                background: $inputBgColor;
+                border: 1px solid transparent;
+                border-radius: $postRadius;
+                margin: 3px $listMargin;
+                padding: 0 $listPadding;              
+                width: 20%;
+                font-style: italic;
+                &:focus {
+                    width: 80%;
+                    outline: 2px solid $buttonColorHover;
+                    box-shadow: 0 0 10px $neonColor;
+                    border: none;
+                    font-style: normal;
+                    &::placeholder {
+                        color: transparent;
+                    }
+                }
+            }
+        }
+        &--comments {
+            width: 100%;
+            background-color: $listBgColor;
+            border: 2px solid $postBorder;
+            border-radius: $postRadius;
+            padding: $listPadding;
+            margin: $listMargin $listMargin calc($listMargin * 4);
+            &--content {
+                margin-bottom: calc($listMargin * 2);
+                &:focus {
+                    background-color: white;
+                }
+            }
+            &--footer {
+                display: flex;
+                flex-direction: row;
+                align-items: baseline;
+                &--author {
+                    margin-right: $listMargin;
+                    font-weight: 600;
+                }
+                &--date {
+                    margin-right: $listMargin;
+                    font-size: 12px;
+                    font-style: italic;
+                }
+                &--hour {
+                    font-size: 12px;
+                    font-style: italic;
+                }
+            }
+            & button {
+                margin-top: calc($listMargin * 2);
+            }
+        }
+    }
+}
+
+.loader {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.neontext {
+    font-size: 4.2rem;
+    font-family: $headerFont;
+    // animation: flicker 1.5s infinite alternate;
+    // animation: pulsate 2.5s infinite alternate;
+    animation: pulsate 2.5s ease-in-out infinite alternate;  
+    color: #fff;
+    text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px $neonColor,
+      0 0 82px $neonColor,
+      0 0 92px $neonColor,
+      0 0 102px $neonColor,
+      0 0 151px $neonColor;
+}
+
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@media (hover: hover) {
+a:hover {
+    border-color: $postBorderHover;
+}
+}
+
+@media screen and (max-width: 770px) {
+    .post--header {
+        flex-direction: column;
+        &--content {
+            max-width: 50%;
+            min-width: $listWidth;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    #app {
+        padding: 2rem;
+    }
+}
+@media screen and (max-width: 530px) {
+    .post--header {
+        &--logo {
+            font-size: 35px ;
+        }
+    }
+    #app {
+        padding: 0;
+    }    
+}

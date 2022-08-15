@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Edu+TAS+Beginner:wght@400;600&family=Londrina+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Dancing+Script:wght@400;500;600&family=Londrina+Shadow&display=swap');
+
+$headerFont: 'Dancing Script';
+$defaultFont: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+$headerFontSize: 25px;
+$headerFontWeight: 600;
+
+$listBgColor: #ffffff9f;
+$listBorderColor: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+$listEdit: #ffffffcc;
+$postBgColor: #ffffff9f;
+$headerBgColor: #ffffffd3;
+$inputBgColor: #ffffffd3;
+$editText: #222222;
+$postBorder: #fad0c4;
+$postBorderHover: #ffd1ff;
+$buttonBgColor: #fad0c4;
+$buttonColorHover: darkorchid;
+$cardBorder: darkorchid;
+
+// $neonColor: #0fa;
+$neonColor: #f09;
+
+$listWidth: 250px;
+$listHeight: 250px;
+$listPadding: 5px;
+$listMargin: 5px;
+$detailViewWidth: 400px;
+$detailViewHeight: 400px;
+$postMargin: 10px;
+$postRadius: 5px;
+$listRadius: 5px;
+
+@mixin button ($width: 80px, $height: auto, $margin-top: 0) {
+    & button {
+        width: $width;
+        height: $height;
+        margin-top: $margin-top;
+        border: 1px solid $cardBorder;
+        border-radius: $postRadius;
+        background-color: $buttonBgColor;
+        // background-image: linear-gradient(-20deg, #ddd6f3 0%, #faaca8 100%, #faaca8 100%);
+        // background-image: linear-gradient(-20deg, #f794a4 0%, #fdd6bd 100%);
+        font-weight: 400;
+        font-size: 16px;
+        font-family: $headerFont;
+        color: $editText;
+        cursor: pointer;
+        &:hover {
+            background-color: $postBorderHover;
+            color: $buttonColorHover;
+            box-shadow: 0 0 10px $buttonColorHover;
+        }
+        &:focus {
+            background-color: $postBorderHover;
+            outline: 0;
+            color: $buttonColorHover;
+            box-shadow: 0 0 10px $buttonColorHover;
+        }
+    }    
+}
+
+@mixin input() {
+    & input {
+        background: $postBgColor;
+        border: 1px solid transparent;
+        border-radius: $postRadius;
+        margin: 3px $listMargin;
+        padding: 0 $listPadding;
+        &:focus {
+            outline: 2px solid $buttonColorHover;
+            box-shadow: 0 0 10px $neonColor;
+            border: none;
+            &::placeholder {
+                color: transparent;
+            }
+        }
+    }
+}

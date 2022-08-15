@@ -1,0 +1,66 @@
+@import './variables';
+
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px $neonColor,
+        0 0 80px $neonColor,
+        0 0 90px $neonColor,
+        0 0 100px $neonColor,
+        0 0 150px $neonColor;
+    }
+    20%, 24%, 55% {       
+      text-shadow: none;
+    }
+  }
+
+@keyframes pulsate {
+    100% {
+      /* Larger blur radius */
+      text-shadow:
+        0 0 4px #fff,
+        0 0 11px #fff,
+        0 0 19px #fff,
+        0 0 40px $neonColor,
+        0 0 80px $neonColor,
+        0 0 90px $neonColor,
+        0 0 100px $neonColor,
+        0 0 150px $neonColor;
+    }
+    0% {
+      /* Smaller blur radius */
+      text-shadow:
+        0 0 2px #fff,
+        0 0 4px #fff,
+        0 0 6px #fff,
+        0 0 10px $neonColor,
+        0 0 45px $neonColor,
+        0 0 55px $neonColor,
+        0 0 70px $neonColor,
+        0 0 80px $neonColor;
+    }
+  }
