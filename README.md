@@ -14,7 +14,7 @@ What I did :
 - Some Unit Tests
 - Usage of SASS
 - Responsive design
-- Keep in mind aceessbility, SEO and best practices tested with Google Lighthouse
+- Keep in mind acessibility, SEO and best practices tested with Google Lighthouse
 
 
 
